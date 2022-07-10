@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>入院登记</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title">
+                <li class="layui-this">项目大类</li>
+                <li>住院收费项目</li>
+                <li>住院床位</li>
+                <li>报销类型</li>
+            </ul>
+
+            <div class="layui-tab-content">
+                <!--项目大类start-->
+                <div class="layui-tab-item layui-show">
+                    <fieldset class="table-search-fieldset">
+                        <legend>搜索信息</legend>
+                        <div style="margin: 10px 10px 10px 10px">
+                            <form class="layui-form layui-form-pane" action="" id="formSelectProjectTag">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">类别</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="projectName" autocomplete="off" class="layui-input"
+                                                   id="searchProjectTagInp">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <div class="layui-btn layui-btn-normal" id="searchProjectTag" lay-submit
+                                             lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </fieldset>
+
+                    <script type="text/html" id="toolbarDemo">
+                        <div class="layui-btn-container">
+                            <button class="layui-btn layui-btn-normal layui-btn data-add-btn" lay-event="add">
+                                <i class="layui-icon">&#xe654;</i>添加
+                            </button>
+                        </div>
+                    </script>
+
+                    <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+                    <script type="text/html" id="currentTableBar">
+                        <a class="layui-btn layui-btn-sm  layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+                    </script>
+
+                    <div style="display: none" id="addProjectTag">
+                        <div class="layui-form layuimini-form">
+                            <form class="layui-form" lay-filter="dataFrm" id="dataFrm" style="margin-top: 20px">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">类别:</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="projectName" lay-verify="required"
+                                                   placeholder="请输入项目大类名称" autocomplete="off"
+                                                   class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item" style="text-align: center;">
+                                    <div class="layui-input-block" style=" margin-left:0px">
+                                        <button type="button"
+                                                class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release"
+                                                lay-filter="doSubmit" lay-submit="">提交
+                                        </button>
+                                        <button type="reset"
+                                                class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh">
+                                            重置
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--项目大类end-->
+
+                <!--住院收费项目start-->
+                <div class="layui-tab-item">
+                    <fieldset class="table-search-fieldset">
+                        <legend>搜索信息</legend>
+                        <div style="margin: 10px 10px 10px 10px">
+                            <form class="layui-form layui-form-pane" action="" id="formSelectRegister">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">项目名称</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="ProjectName" autocomplete="off" class="layui-input"
+                                                   id="searchProjectNameInp">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <div class="layui-btn layui-btn-normal" id="searchProjectNameBtn" lay-submit><i
+                                                class="layui-icon"></i> 搜 索
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </fieldset>
+
+
+                    <script type="text/html" id="toolbarDemo1">
+                        <div class="layui-btn-container">
+                            <button class="layui-btn layui-btn-normal layui-btn data-add-btn" lay-event="add">
+                                <i class="layui-icon">&#xe654;</i>添加
+                            </button>
+                        </div>
+                    </script>
+
+                    <table class="layui-hide" id="currentTableId1" lay-filter="currentTableFilter1"></table>
+
+                    <script type="text/html" id="currentTableBar1">
+                        <a class="layui-btn layui-btn-sm  data-count-edit" lay-event="edit">编辑</a>
+                        <a class="layui-btn layui-btn-sm  layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+                    </script>
+
+                    <div style="display: none" id="addOrUpdateProject">
+                        <div class="layui-form layuimini-form">
+                            <form class="layui-form" lay-filter="dataFrm1" id="dataFrm1" style="margin-top: 20px">
+                                <div class="layui-form-item">
+                                    <input type="hidden" name="inoutpatientId">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">收费项:</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="projectName" lay-verify="required"
+                                                   placeholder="请输入收费项" autocomplete="off"
+                                                   class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">价格:</label>
+                                        <div class="layui-input-inline">
+                                            <input type="number" name="price" lay-verify="required" placeholder="请输入价格"
+                                                   autocomplete="off"
+                                                   class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">项目大类:</label>
+                                        <div class="layui-input-inline">
+                                            <select name="projectId" id="projectId" lay-verify="required"
+                                                    lay-filter="demo">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">单位:</label>
+                                        <div class="layui-input-inline">
+                                            <select name="unitId" id="unitId" lay-verify="required">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item" style="text-align: center;">
+                                    <div class="layui-input-block" style="margin-left:0px;">
+                                        <button type="button"
+                                                class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release"
+                                                lay-filter="doSubmit1" lay-submit="">提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--住院收费项目end-->
+
+                <!--住院床位start-->
+                <div class="layui-tab-item">
+                    <fieldset class="table-search-fieldset">
+                        <legend>搜索信息</legend>
+                        <div style="margin: 10px 10px 10px 10px">
+                            <form class="layui-form layui-form-pane" action="" id="formSelectBed">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">床位</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="bedName" autocomplete="off" class="layui-input"
+                                                   id="searchBedInp">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <div class="layui-btn layui-btn-normal" id="searchBedBtn" lay-submit><i
+                                                class="layui-icon"></i> 搜 索
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </fieldset>
+
+
+                    <script type="text/html" id="toolbarDemo2">
+                        <div class="layui-btn-container">
+                            <button class="layui-btn layui-btn-normal layui-btn data-add-btn" lay-event="add">
+                                <i class="layui-icon">&#xe654;</i>添加
+                            </button>
+                        </div>
+                    </script>
+
+                    <table class="layui-hide" id="currentTableId2" lay-filter="currentTableFilter2"></table>
+
+                    <script type="text/html" id="currentTableBar2">
+                        <a class="layui-btn layui-btn-sm  data-count-edit" lay-event="edit">编辑</a>
+                        <a class="layui-btn layui-btn-sm  layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+                    </script>
+
+                    <div style="display: none" id="addOrUpdateBed">
+                        <div class="layui-form layuimini-form">
+                            <form class="layui-form" lay-filter="dataFrm2" id="dataFrm2" style="margin-top: 20px">
+                                <div class="layui-form-item">
+                                    <input type="hidden" name="bedId">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">床位:</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="bedName" lay-verify="required"
+                                                   placeholder="请输入床位名称" autocomplete="off"
+                                                   class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">价格:</label>
+                                        <div class="layui-input-inline">
+                                            <input type="number" name="Price" lay-verify="required" placeholder="请输入价格"
+                                                   autocomplete="off"
+                                                   class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">所属科室:</label>
+                                        <div class="layui-input-inline">
+                                            <select name="departmentId" id="departmentId" lay-verify="required">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item" style="text-align: center;">
+                                    <div class="layui-input-block" style="margin-left:0px;">
+                                        <button type="button"
+                                                class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release"
+                                                lay-filter="doSubmit2" lay-submit="">提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--住院床位start-->
+
+                <!--报销类型start-->
+                <div class="layui-tab-item">
+                    <fieldset class="table-search-fieldset">
+                        <legend>搜索信息</legend>
+                        <div style="margin: 10px 10px 10px 10px">
+                            <form class="layui-form layui-form-pane" action="" id="formSelectMedicare">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">类型</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="medicareType" autocomplete="off" class="layui-input"
+                                                   id="searchMedicareInp">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <div class="layui-btn layui-btn-normal" id="searchMedicareBtn" lay-submit><i
+                                                class="layui-icon"></i> 搜 索
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </fieldset>
+
+
+                    <script type="text/html" id="toolbarDemo3">
+                        <div class="layui-btn-container">
+                            <button class="layui-btn layui-btn-normal layui-btn data-add-btn" lay-event="add">
+                                <i class="layui-icon">&#xe654;</i>添加
+                            </button>
+                        </div>
+                    </script>
+
+                    <table class="layui-hide" id="currentTableId3" lay-filter="currentTableFilter3"></table>
+
+                    <script type="text/html" id="currentTableBar3">
+                        <a class="layui-btn layui-btn-sm  layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+                    </script>
+
+                    <div style="display: none" id="addOrUpdateMedicare">
+                        <div class="layui-form layuimini-form">
+                            <form class="layui-form" lay-filter="dataFrm3" id="dataFrm3" style="margin-top: 20px">
+                                <div class="layui-form-item">
+                                    <input type="hidden" name="medicareId">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">报销类型:</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="medicareType" lay-verify="required"
+                                                   placeholder="请输入报销类型" autocomplete="off"
+                                                   class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">报销百分比:</label>
+                                        <div class="layui-input-inline">
+                                            <input type="number" name="medicarePercent" lay-verify="required"
+                                                   placeholder="(小数形式)" autocomplete="off"
+                                                   class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item" style="text-align: center;">
+                                    <div class="layui-input-block" style="margin-left:0px;">
+                                        <button type="button"
+                                                class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release"
+                                                lay-filter="doSubmit3" lay-submit=""> 提交
+                                        </button>
+                                        <button type="reset"
+                                                class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh">
+                                            重置
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--报销类型start-->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../lib/axios/axios.js"></script>
+<script src="../js/common.js"></script>
+<script src="../lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="../js/medicalTech.js"></script>
+</body>
+</html>

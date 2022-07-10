@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>住院信息系统-登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <!--导入layui的css文件-->
+    <link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+    <!--导入本页面的css文件-->
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+<div class="layui-container">
+    <div class="admin-login-background">
+        <div class="layui-form login-form">
+            <form id="formLogin" class="layui-form" action="">
+                <div class="layui-form-item logo-title">
+                    <h1>住院信息系统-后台</h1>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-icon layui-icon-username"></label>
+                    <input type="text" name="loginName" lay-verify="required" placeholder="请输入账号"
+                           autocomplete="off" class="layui-input" value="">
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-icon layui-icon-password"></label>
+                    <input type="password" name="password" lay-verify="required" placeholder="请输入密码"
+                           autocomplete="off" class="layui-input" value="">
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-icon layui-icon-vercode"></label>
+                    <input type="text" name="captcha" lay-verify="required" placeholder="图形验证码"
+                           autocomplete="off" class="layui-input verification captcha">
+                    <div class="captcha-img">
+                        <img id="captchaPic" src="http://localhost:6543/api/captcha">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" lay-submit=""
+                            lay-filter="login">登 入
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--导入axios.js-->
+<script src="../lib/axios/axios.js"></script>
+<!--引入common.js-->
+<script src="../js/common.js"></script>
+<!--导入layui的js文件-->
+<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<!--导入jQuery-->
+<script src="../lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<!--导入例子背景js-->
+<script src="../lib/jq-module/jquery.particleground.min.js" charset="utf-8"></script>
+<!--导入当前页面js-->
+<script src="../js/login.js"></script>
+
+</body>
+</html>

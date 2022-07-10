@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <div style="padding: 20px" id="details">
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">个人详情</li>
+                    <!-- <li>检查详情</li>-->
+                    <li>药品详情</li>
+                    <li>项目详情</li>
+                </ul>
+                <div class="layui-tab-content" style="height: 100px;">
+                    <div class="layui-tab-item layui-show">
+                        <ul id="ul">
+                            <li>姓名：<span id="userName"></span></li>
+                            <li>科室：<span id="department"></span></li>
+                            <li>性别：<span id="sex"></span></li>
+                            <li>医生：<span id="doctorName"></span></li>
+                            <li>年龄：<span id="age"></span>岁</li>
+                            <li>床位：<span id="bedName"></span></li>
+                            <li>电话：<span id="phone"></span></li>
+                            <li>入住：<span id="day"></span>天</li>
+                            <li>地址：<span id="address"></span></li>
+                            <li>入住时间：<span id="registerDate"></span></li>
+                            <li>身份证号：<span id="idcard"></span></li>
+                            <li>出院时间：<span id="endDate"></span></li>
+                            <li>初步诊断：<span id="diagnose"></span></li>
+                            <li>总费用：<span id="price"></span>元</li>
+                            <li>折扣：<span id="discount"></span></li>
+                        </ul>
+                    </div>
+                    <!--<div class="layui-tab-item"><table class="layui-hide" id="checkup" lay-filter="checkup"></table></div>-->
+                    <div class="layui-tab-item">
+                        <table class="layui-hide" id="yao" lay-filter="yao"></table>
+                    </div>
+                    <div class="layui-tab-item">
+                        <table class="layui-hide" id="xiangmu" lay-filter="xiangmu"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../lib/axios/axios.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="../../js/outRegisterInfo.js"></script>
+</body>
+</html>

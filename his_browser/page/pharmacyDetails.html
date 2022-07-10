@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>入院登记</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <fieldset class="table-search-fieldset">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="" id="formSelectRegister">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">药品名称</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="userName" autocomplete="off" class="layui-input"
+                                       id="searchPharmacyInp">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-btn layui-btn-normal" id="searchPharmacyBtn" lay-submit
+                                 lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+
+        <script type="text/html" id="toolbarDemo">
+            <div class="layui-btn-container">
+                <button id="btn-open" class="layui-btn layui-btn-normal layui-btn data-add-btn" lay-event="add">
+                    <i class="layui-icon">&#xe654;</i>添加
+                </button>
+            </div>
+        </script>
+
+        <!--住院病人信息-->
+        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+        <script type="text/html" id="currentTableBar">
+            <a class="layui-btn layui-btn-sm data-count-edit" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-sm  layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+        </script>
+
+        <div style="display: none" id="addDrug">
+            <div class="layui-form layuimini-form">
+                <form class="layui-form" lay-filter="dataFrm" id="dataFrm">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">药品名称:</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="pharmacyName" id="pharmacyName" lay-verify="required"
+                                       placeholder="请输入药品名称"
+                                       autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline" style="display: none" id="checkTrue">
+                                <i class="layui-icon layui-icon-ok-circle"
+                                   style="font-size: 20px; color: #009688;vertical-align: middle"></i>
+                                <span id="trueTips" style="color: #3D93FF"></span>
+                            </div>
+                            <div class="layui-input-inline" style="display: none" id="checkFalse">
+                                <i class="layui-icon layui-icon-close-fill"
+                                   style="font-size: 20px; color: #FE0000;vertical-align: middle"></i>
+                                <span id="falseTips" style="color: #FF5722"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">药品单位:</label>
+                            <div class="layui-input-inline">
+                                <select name="unitId" id="unitId" lay-verify="required">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">供货单位:</label>
+                            <div class="layui-input-inline">
+                                <select name="areaId" id="areaId" lay-verify="required"
+                                        lay-filter="department">
+                                    <option value="">请选择供货单位</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">售价:</label>
+                            <div class="layui-input-inline">
+                                <input type="number" name="sellingPrice" id="sellingPrice" lay-verify="required"
+                                       placeholder="请输入售价"
+                                       autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">生产日期:</label>
+                            <div class="layui-input-inline">
+                                <input type="date" id="produceDate" name="produceDate" class="layui-input">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">类型:</label>
+                            <div class="layui-input-inline">
+                                <select name="typeId" id="typeId" lay-verify="required" lay-filter="doctorId">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">有效日期:</label>
+                            <div class="layui-input-inline">
+                                <input type="date" id="validDate" name="validDate" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">数量:</label>
+                            <div class="layui-input-inline">
+                                <input type="number" name="drugstoreNum" id="drugstoreNum" lay-verify="required|number"
+                                       placeholder="请输入药品数量"
+                                       autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">批号:</label>
+                            <div class="layui-input-inline">
+                                <input id="skullBatch" name="skullBatch" class="layui-input" disabled/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="text-align: center;margin-left: -80px;">
+                        <div class="layui-input-block">
+                            <button type="button"
+                                    class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release"
+                                    lay-filter="saveBtn" lay-submit>提交
+                            </button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div style="display: none" id="editDrug">
+            <div class="layui-form layuimini-form">
+                <form class="layui-form" lay-filter="dataFrm1" id="dataFrm1">
+
+                    <input type="text" name="pharmacyId" class="layui-hide" disabled>
+
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">药品名称:</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="pharmacyName" class="layui-input" disabled>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">供货单位:</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="areaName" class="layui-input" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">药品单位:</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="unitName" class="layui-input" disabled>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">批号:</label>
+                            <div class="layui-input-inline">
+                                <input name="skullBatch" class="layui-input" disabled/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">类型:</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="typeName" class="layui-input" disabled>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">售价:</label>
+                            <div class="layui-input-inline" style="font-weight: 700">
+                                <input type="number" name="sellingPrice" id="sellingPrice1" lay-verify="required"
+                                       autocomplete="off"
+                                       class="layui-input" style="border-color: #0C0C0C">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">生产日期:</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="produceDate" class="layui-input" disabled>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">数量:</label>
+                            <div class="layui-input-inline" style="font-weight: 700">
+                                <input type="number" name="drugstoreNum" id="drugstoreNum1" lay-verify="required|number"
+                                       autocomplete="off" style="border-color: #0C0C0C"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">有效日期:</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="validDate" class="layui-input" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item" style="text-align: center;margin-left: -80px;">
+                        <div class="layui-input-block">
+                            <button type="button"
+                                    class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release"
+                                    lay-filter="saveBtn1" lay-submit>提交
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../lib/axios/axios.js"></script>
+<script src="../js/common.js"></script>
+<script src="../lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="../js/pharmacyDetails.js"></script>
+</body>
+</html>

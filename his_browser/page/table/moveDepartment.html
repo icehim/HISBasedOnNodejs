@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <link rel="stylesheet" href="../../lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+
+        .moveDepartmentArrowFather {
+            position: relative;
+        }
+
+        .moveDepartmentArrowSon {
+            position: absolute;
+            top: 12px;
+            left: 53%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="ke" class="layui-form layuimini-form">
+    <form class="layui-form" lay-filter="frm" id="frm">
+        <div class="layui-form-item" style="margin-top: 5%;">
+            <!--用户-->
+            <input type="hidden" name="registerId" id="t4">
+            <!--科室-->
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">科室</label>
+                    <div class="layui-input-inline">
+                        <input id="oldDepartmentId" type="text" name="" autocomplete="off" class="layui-input"
+                               value="" disabled>
+                    </div>
+                    <label class="layui-form-label">科室:</label>
+                    <div class="layui-input-inline">
+                        <select name="newDepartmentId" id="newDepartmentId" lay-verify="required"
+                                lay-filter="newDepartmentId">
+                            <option value="">请选择科室</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--医生-->
+            <div class="layui-form-item position-right">
+                <div class="layui-inline moveDepartmentArrowFather">
+                    <label class="layui-form-label">医生:</label>
+                    <div class="layui-input-inline">
+                        <input id="oldDoctorId" type="text" name="oldDoctorId" autocomplete="off" class="layui-input"
+                               value="" disabled>
+                    </div>
+                    <i class="fa fa-chevron-right moveDepartmentArrowSon"></i>
+                    <label class="layui-form-label">医生:</label>
+                    <div class="layui-input-inline">
+                        <select name="newDoctorId" id="newDoctorId" lay-verify="required" lay-filter="newDoctorId">
+                            <option value="">请先选择科室</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--床位-->
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">床位:</label>
+                    <div class="layui-input-inline">
+                        <input id="oldBedId" type="text" name="oldBedId" autocomplete="off" class="layui-input"
+                               value="" disabled>
+                    </div>
+                    <label class="layui-form-label">床位:</label>
+                    <div class="layui-input-inline">
+                        <select name="newBedId" id="newBedId" lay-verify="required" lay-filter="newBedId">
+                            <option value="">请先选择科室</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item" style="text-align: center;margin-left: -80px;">
+            <div class="layui-input-block">
+                <button type="button" class="layui-btn layui-btn-normal layui-icon layui-icon-release"
+                        lay-filter="saveBtn" lay-submit=""> 提交
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="../../lib/axios/axios.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="../../js/moveDepartment.js"></script>
+
+</body>
+</html>

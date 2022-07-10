@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>入院登记</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <fieldset class="table-search-fieldset">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">住院号</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="searchRegisterBalanceInp" name="registerId" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div type="submit" id="searchRegisterBalanceBtn" class="layui-btn layui-btn-normal"
+                                 lay-submit
+                                 lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-card">
+                        <div class="layui-card-header">患者信息</div>
+                        <div class="layui-card-body">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">姓名</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="userName" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">科室</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="departmentId" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">金额</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="money" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">性别</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="sex" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">医生</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="doctorId" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">已用</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="inHospitalPriceTotal" autocomplete="off"
+                                               class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">年龄</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="age" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">床位</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="bedId" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">余款</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="balance" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <div class="layui-row">
+            <div class="layui-col-lg6">
+                <div style="display: none" id="ToolBar">
+                    <form class="layui-form layui-form-pane" action="">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <div class="layui-btn layui-btn-normal" id="addDrug" lay-event="add">
+                                    取 药
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter1"></table>
+            </div>
+
+            <div class="layui-col-lg1 arrows">
+                <div class="arrows-right">
+                    <i class="fa fa-angle-double-right"></i>
+                    选择
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+            </div>
+
+            <div class="layui-col-lg5 layui-col-lg-offset1">
+                <table class="layui-hide" id="currentTableId1" lay-filter="currentTableFilter2"></table>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div id="drugNumPage" style="text-align: center;display: none">
+    <form class="layui-form" id="dataFrm">
+        <input type="number" id="drugNum" name="drugNum" style="height: 25px;width:200px;margin-top: 15px;"
+               placeholder="请输入数量">
+        <br/><br/><br/>
+        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release" id="sub1" lay-filter="saveBtn" lay-submit>
+            提交
+        </button>
+        <button type="button"
+                class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh layui-icon-delete" id="close1">
+            取消
+        </button>
+    </form>
+</div>
+
+<script src="../lib/axios/axios.js"></script>
+<script src="../js/common.js"></script>
+<script src="../lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="../js/takeMedicine.js"></script>
+
+</body>
+</html>

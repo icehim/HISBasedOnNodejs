@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-form layuimini-form">
+    <form class="layui-form" lay-filter="dataFrm" id="dataFrm">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">姓名:</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="userName" id="userName" lay-verify="required" placeholder="请输入姓名"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">门诊诊断:</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="diagnose" id="diagnose" lay-verify="required"
+                           placeholder="请输入入院诊断" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">性别:</label>
+                <div class="layui-input-inline">
+                    <input type="radio" name="sex" value="男" title="男" checked>
+                    <input type="radio" name="sex" value="女" title="女">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">科室:</label>
+                <div class="layui-input-inline">
+                    <select name="departmentId" id="departmentId" lay-verify="required" lay-filter="department">
+                        <option value="">请选择科室</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">年龄:</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="age" id="age" lay-verify="required" placeholder="请输入年龄"
+                           autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">医生:</label>
+                <div class="layui-input-inline">
+                    <select name="doctorId" id="doctorId" lay-verify="required" lay-filter="doctorId">
+                        <option value="">请先选择科室</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">地址:</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="address" lay-verify="required" placeholder="请输入住址" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">床位:</label>
+                <div class="layui-input-inline">
+                    <select name="bedId" id="bedId" lay-verify="required" lay-filter="bedId">
+                        <option value="">请先选择科室</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">电话:</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="phone" id="phone" lay-verify="required|phone|number"
+                           placeholder="请输入电话" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">预交金额:</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="money" lay-verify="required|number" placeholder="请输入预交金额"
+                           autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">身份证号:</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="idcard" id="idcard" lay-verify="required|identity"
+                           placeholder="请输入身份证号" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">选择医保:</label>
+                <div class="layui-input-inline">
+                    <select name="medicarePercent" id="medicarePercent" lay-verify="required">
+                        <option value="">请选择医保</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item" style="text-align: center;margin-left: -80px;">
+            <div class="layui-input-block">
+                <button type="button" class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release"
+                        lay-filter="saveBtn" lay-submit> 提交
+                </button>
+                <button type="reset" class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh"> 重置
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="../../lib/axios/axios.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="../../js/addRegister.js"></script>
+</body>
+</html>

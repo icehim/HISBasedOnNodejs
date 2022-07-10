@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>入院登记</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <fieldset class="table-search-fieldset">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">住院号</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="searchRegisterBalanceInp" name="registerId" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div type="submit" id="searchRegisterBalanceBtn" class="layui-btn layui-btn-normal"
+                                 lay-submit
+                                 lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-card">
+                        <div class="layui-card-header">患者信息</div>
+                        <div class="layui-card-body">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">姓名</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="userName" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">科室</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="departmentId" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">金额</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="money" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">性别</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="sex" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">医生</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="doctorId" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">已用</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="inHospitalPriceTotal" autocomplete="off"
+                                               class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">年龄</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="age" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">床位</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="bedId" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">余款</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="balance" autocomplete="off" class="layui-input"
+                                               disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <script type="text/html" id="toolbarDemo">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add">预交</button>
+            </div>
+        </script>
+
+        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+    </div>
+</div>
+<script src="../lib/axios/axios.js"></script>
+<script src="../js/common.js"></script>
+<script src="../lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="../js/payManage.js"></script>
+
+</body>
+</html>

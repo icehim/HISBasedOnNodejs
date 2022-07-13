@@ -12,6 +12,6 @@
 > #### 后端:
 > 1. 安装node,之后在his_server文件下npm i下载依赖包
 > 2. 安装mysql，将his_database文件中的数据库文件执行一下
-> 3. 之后在his_browser\js\commmon.js和his_server\app.js和his_server\database\index.js中分别配置前端，后端，跨域接口，数据库设置
+> 3. 之后在his_browser\js\common.js和his_server\app.js和his_server\database\index.js中分别配置前端，后端，跨域接口，数据库设置
 
 ## 说明文档有空在更新

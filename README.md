@@ -10,7 +10,7 @@
 > #### 前端：
 > 必须在服务器环境下，vscode的live server、webpack、等。。
 > #### 后端:
-> 1.安装node,之后在his_server文件下npm i下载依赖包
-> 2.安装mysql，将his_database文件中的数据库文件执行一下
+> 1. 安装node,之后在his_server文件下npm i下载依赖包
+> 2. 安装mysql，将his_database文件中的数据库文件执行一下
 
 ## 说明文档有空在更新

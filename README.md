@@ -6,6 +6,8 @@
 >
 > 👉[在线演示地址](http://thinkpeach.cn:3001/his_browser/page/login.html)      账号:admin   密码:123456
 
-> 安装环境:
+> ### 安装环境:
+> #### 前端：
+> 必须在服务器环境下，vscode的live server、webpack、等。。
 
 ## 说明文档有空在更新

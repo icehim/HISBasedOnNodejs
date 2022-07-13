@@ -171,6 +171,7 @@ router.post('/updateUserPassword', (req, res) => {
     let {old_password, new_password, again_password} = req.body
     let userId = req.user.id
 
+    if (userId === 1 )return res.send({status: 1, message: '超级管理员账户唯一,不可更改密码!'})
     if (!/^[a-zA-Z]\w{5,9}$/.test(new_password)) {
         return res.send({status: 1, message: '新密码格式有误,请重新输入!'});
     }

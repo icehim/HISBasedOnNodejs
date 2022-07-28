@@ -16,9 +16,9 @@
 
 ### 运行截图
 
-- 登录页面
+#### 登录页面
 
-  ![image-20220728231957448](https://wordpress-1253884057.cos.ap-beijing.myqcloud.com/typora/image-20220728231957448.png)
+![image-20220728231957448](https://wordpress-1253884057.cos.ap-beijing.myqcloud.com/typora/image-20220728231957448.png)
 
 有时长时间不登陆会提示：
 
@@ -28,20 +28,30 @@ Cannot read properties of undefined(reading 'toLowerCase')
 
 验证码cookie失效了，重新输入验证码再次点击登入即可。
 
-- 进入首页
+#### 进入首页
 
-  ![image-20220728233703207](https://bucket.thinkpeach.cn/typora/image-20220728233703207.png)
+![image-20220728233703207](https://bucket.thinkpeach.cn/typora/image-20220728233703207.png)
 
-  > 首页分为`业务管理`和`系统管理`两大部分
+> 首页分为`业务管理`和`系统管理`两大部分
 
-  - 业务管理
+#### 业务管理
 
-    ![image-20220728234131449](https://bucket.thinkpeach.cn/typora/image-20220728234131449.png)
+![image-20220728234131449](https://bucket.thinkpeach.cn/typora/image-20220728234131449.png)
 
-  - 系统管理
+#### 系统管理
 
-    ![image-20220728234158146](https://bucket.thinkpeach.cn/typora/image-20220728234158146.png)
+![image-20220728234158146](https://bucket.thinkpeach.cn/typora/image-20220728234158146.png)
 
-- 支持简单的菜单分配
+#### 支持简单的菜单分配
 
-  ![image-20220728234308036](https://bucket.thinkpeach.cn/typora/image-20220728234308036.png)
+![image-20220728234308036](https://bucket.thinkpeach.cn/typora/image-20220728234308036.png)
+
+#### 角色分配
+
+![image-20220728234732448](https://bucket.thinkpeach.cn/typora/image-20220728234732448.png)
+
+> ### 功能挺多的，毕竟做了一个多月，但是代码也挺容易看懂的，就是太“屎”了
+>
+> ### 里面很多功能就是增删改查就完事儿了，稍微有点难度的就是，父子菜单的遍历渲染到页面。
+>
+> ##### 觉得对你有帮助(不是倒忙)的话，可以点个星星~

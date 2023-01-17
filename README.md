@@ -20,13 +20,6 @@
 
 ![image-20220728231957448](https://wordpress-1253884057.cos.ap-beijing.myqcloud.com/typora/image-20220728231957448.png)
 
-有时长时间不登陆会提示：
-
-```js
-Cannot read properties of undefined(reading 'toLowerCase')
-```
-
-验证码cookie失效了，重新输入验证码再次点击登入即可。
 
 #### 进入首页
 

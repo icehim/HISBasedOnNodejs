@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 云数据库
+ Source Server         : 本地MySQL57
  Source Server Type    : MySQL
- Source Server Version : 50650
+ Source Server Version : 50739
  Source Host           : localhost:3306
  Source Schema         : hisdatabase
 
  Target Server Type    : MySQL
- Target Server Version : 50650
+ Target Server Version : 50739
  File Encoding         : 65001
 
- Date: 21/05/2022 10:37:39
+ Date: 17/01/2023 13:28:30
 */
 
 SET NAMES utf8mb4;
@@ -1816,7 +1816,7 @@ CREATE TABLE `sys_role`  (
   `roleDesc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `available` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`roleId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_role
@@ -1920,7 +1920,7 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 'admin', '412365199601236544', '超级管理员', 1, '山西123', '13183380740', '4acb4bc224acbbe3c2bfdcaa39a4324e', 'CEO', 1, 1, 'd21fd4');
+INSERT INTO `sys_user` VALUES (1, 'admin', '412365199601236544', '超级管理员', 1, '山西123', '13183380740', 'e10adc3949ba59abbe56e057f20f883e', 'CEO', 1, 1, 'd21fd4');
 INSERT INTO `sys_user` VALUES (6, 'doctor', '157943399947581736', '张三', 1, '北京天安门', '12345678910', 'e10adc3949ba59abbe56e057f20f883e', '主任医师', 2, 1, NULL);
 
 -- ----------------------------

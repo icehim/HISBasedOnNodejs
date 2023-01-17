@@ -2,7 +2,7 @@
 const express = require('express');
 // 创建路由对象
 const router = express.Router();
-// 导入数据库模块，根据用户名查询，判断是否查到具体的数据; 
+// 导入数据库模块，根据用户名查询，判断是否查到具体的数据;
 const db = require('../database/index');
 // 下载: npm  i  utility@1.17.0
 const utility = require('utility');
@@ -11,6 +11,7 @@ const utility = require('utility');
 const jwt = require('jsonwebtoken');
 // 登陆
 router.post('/login', (req, res) => {
+    if (!req.session.captcha) return res.send({status: 1, message: "验证码失效,请重新输入!"});
     // 把前端传递过来的post参数解构
     let {loginName, password,captcha} = req.body;
     //获取过来的验证码以及session中的验证码统一小写

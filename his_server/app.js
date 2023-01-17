@@ -1,8 +1,5 @@
 //导入express-基于nodejs的web开发框架
 const express = require('express');
-//导入数据库配置
-const db = require('./database/index');
-const utility = require("utility");
 //导入验证码session模块
 const session = require('express-session');
 //导入验证码cookie模块
@@ -14,7 +11,7 @@ const app = express();
 
 //跨域设置
 app.all("*", function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3001');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:63342');
     res.header('Access-Control-Allow-Credentials', true);
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With');
@@ -84,7 +81,7 @@ const noticeManageRouter = require('./router/noticeManage');
 app.use('/noticeManage', noticeManageRouter);
 
 //错误处理中间件，一般写道最末尾，如果有监听，写道监听之前
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
     //身份认证信息，中文转换
     if (err.name === 'UnauthorizedError') {
         err.message = '身份认证失败！'

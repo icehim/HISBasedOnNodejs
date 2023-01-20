@@ -23,25 +23,25 @@
 
 #### 进入首页
 
-![image-20220728233703207](https://bucket.thinkpeach.cn/typora/image-20220728233703207.png)
+![image-20220728233703207](https://wordpress-1253884057.cos.ap-beijing.myqcloud.com/typora/image-20220728233703207.png)
 
 > 首页分为`业务管理`和`系统管理`两大部分
 
 #### 业务管理
 
-![image-20220728234131449](https://bucket.thinkpeach.cn/typora/image-20220728234131449.png)
+![image-20220728234131449](https://wordpress-1253884057.cos.ap-beijing.myqcloud.com/typora/image-20220728234131449.png)
 
 #### 系统管理
 
-![image-20220728234158146](https://bucket.thinkpeach.cn/typora/image-20220728234158146.png)
+![image-20220728234158146](https://wordpress-1253884057.cos.ap-beijing.myqcloud.com/typora/image-20220728234158146.png)
 
 #### 支持简单的菜单分配
 
-![image-20220728234308036](https://bucket.thinkpeach.cn/typora/image-20220728234308036.png)
+![image-20220728234308036](https://wordpress-1253884057.cos.ap-beijing.myqcloud.com/typora/image-20220728234308036.png)
 
 #### 角色分配
 
-![image-20220728234732448](https://bucket.thinkpeach.cn/typora/image-20220728234732448.png)
+![image-20220728234732448](https://wordpress-1253884057.cos.ap-beijing.myqcloud.com/typora/image-20220728234732448.png)
 
 > ### 功能挺多的，毕竟做了一个多月，但是代码也挺容易看懂的，就是太“屎”了
 >

@@ -109,6 +109,6 @@ app.use((err, req, res,next) => {
 
 //监听
 app.listen(6543, function () {
-
+    console.log('后端服务启动在http://localhost:6543')
 })
 

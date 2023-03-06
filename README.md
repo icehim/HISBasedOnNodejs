@@ -2,13 +2,20 @@
 
 > ### 前言:
 >
-> 该项目是本人毕业时所开发的系统，前端用layui，后端用nodejs，用axios来交互数据。奈何水平有限，项目还有亿点bug，不过完成运行下来还是没问题。最近在学vue，之后说不定会用vue重构。
+> 该项目是本人毕业时所全站开发的系统，由此获得优秀毕业论文。
+>
+> 技术栈：Layui + JQuery + Axios + Echarts + Nodejs + Express + Mysql
+>
+> 在线演示地址:
 >
 > 账号:admin   密码:123456
 
 > ### 安装环境:
 > #### 前端：
-> 必须在服务器环境下，vscode的live server、webpack、等。。
+> 必须在本地 web 服务器环境下，
+>
+> 1. 通过本地 web 服务器去访问 *./start/index.html* 即可运行系统
+>
 > #### 后端:
 > 1. 安装node,之后在his_server文件下npm i下载依赖包
 > 2. 安装mysql，将his_database文件中的数据库文件执行一下

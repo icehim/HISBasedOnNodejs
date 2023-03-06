@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@escook/express-joi": "^1.0.0",
+    "@hapi/joi": "^17.1.0",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.1",
     "express-jwt": "^5.3.3",

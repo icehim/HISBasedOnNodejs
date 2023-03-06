@@ -1,5 +1,7 @@
 //导入express-基于nodejs的web开发框架
 const express = require('express');
+// 引入校验规则的包，在定义错误级别的中间件时会用到
+const joi = require('@hapi/joi')
 //导入验证码session模块
 const session = require('express-session');
 //导入验证码cookie模块
@@ -25,14 +27,24 @@ app.use(session({
     saveUninitialized: false,
 }));
 app.use(cookieParser());
-
+app.use((req, res, next) => {
+    // status 默认值为 1，表示失败的情况
+    // err 的值，可能是一个错误对象，也可能是一个错误的描述字符串
+    res.cc = function (err, status = 1) {
+        res.send({
+            status,
+            message: err instanceof Error ? err.message : err,
+        })
+    }
+    next()
+})
 //使用
 app.use(
+    //忽略哪些路径
     //解析token
-    expressJWT({secret: 'hissys'})
-        //忽略哪些路径
-        .unless({path: [/^\/api/]})
+    expressJWT({secret: 'hissys'}).unless({path: [/^\/api/]})
 );
+
 // 要想接收 application/x-www-form-urlencoded请求体参数，要如下设置
 app.use(express.urlencoded({extended: false}));//设置了这句话，req上就有body属性
 // content-type:application/json
@@ -82,15 +94,12 @@ app.use('/noticeManage', noticeManageRouter);
 
 //错误处理中间件，一般写道最末尾，如果有监听，写道监听之前
 app.use((err, req, res) => {
-    //身份认证信息，中文转换
-    if (err.name === 'UnauthorizedError') {
-        err.message = '身份认证失败！'
-    }
-    //处理错误信息
-    res.send({
-        status: 1,
-        message: err.message
-    })
+    // 验证失败导致的错误
+    if (err instanceof joi.ValidationError) return res.cc(err)
+    // 身份认证失败后的错误
+    if (err.name === 'UnauthorizedError') return res.cc('身份认证失败！')
+    // 未知的错误
+    res.cc(err)
 })
 
 //监听

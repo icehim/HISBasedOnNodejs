@@ -159,7 +159,7 @@ router.post('/updateUserInfo', (req, res) => {
 
     let sql = `UPDATE sys_user SET identity='${identity}',realName='${realName}', sex=${sex}, address='${address}', phone='${phone}' WHERE userId=${userId}`;
     //执行sql
-    db(sql, (err, results) => {
+    db(sql, (err, ) => {
         if (err) throw err;
         //成功提示
         res.send({status: 0, message: '修改成功'})
@@ -188,13 +188,12 @@ router.post('/updateUserPassword', (req, res) => {
         if (old_password !== results[0].password) return res.send({status: 1, message: '旧密码输入错误,请重新输入!'});
 
         let sql1 = `update sys_user set password='${new_password}' where userId=${userId}`
-        db(sql1, (err, results) => {
+        db(sql1, (err, ) => {
             if (err) throw err;
             //成功提示
             res.send({status: 0, message: '修改成功,请重新登录'})
         })
     })
-
 })
 
 

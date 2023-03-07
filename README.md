@@ -6,8 +6,6 @@
 >
 > 技术栈：Layui + JQuery + Axios + Echarts + Nodejs + Express + Mysql
 >
-> 在线演示地址:[点此跳转](https://project.icehim.com/his_browser/page/login.html)
->
 > 账号:admin   密码:123456
 
 > ### 安装环境:
